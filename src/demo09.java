@@ -1,5 +1,4 @@
 /*■ 题目描述
-
         【水仙花数】
 
         所谓水仙花数，是指一个n位的正整数，其各位数字的n次方和等于该数本身。
@@ -116,3 +115,44 @@ public class demo09 {
         return result;
     }
 }
+
+/*解法二
+import java.util.*;
+
+public class demo {
+    public static void main(String [] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        if (num < 3 || num > 7) {
+            System.out.println(-1);
+        } else {
+            int temp = 1;
+            int temp1 = 1;
+            for (int i = 0; i < num - 1; i++) {
+                temp = temp * 10;
+                temp1 = temp1 * 10;
+            }
+            temp1 = temp1 * 10;
+            int a = 1;
+            int count = 0;
+            for (int i = temp; i < temp1; i++) {
+                int sum = 0;
+                int change = i;
+                for (int j = 0; j < num ; j++) {
+                    a = change % 10;
+                    change = change / 10;
+                    sum =sum + (int) Math.pow(a, num);
+                }
+                if (sum == i) {
+                    count++;
+                    if (count == sc.nextInt()+1) {
+                        System.out.println(i);
+                    }
+                }
+            }
+        }
+
+
+    }
+}*/
+
